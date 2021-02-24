@@ -1,30 +1,31 @@
 import './App.css';
-import Home from './components/Home';
 import Header from './components/Header';
 import Body from './components/Body';
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import Navigation from './components/Navigation';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
+// import Navigation from './components/Navigation';
 
 
 function App() {
   return (
-    // <div className="App">
     <div className="row">
       <div className="col-2">
-        <Home />
+        <Navigation />
       </div>
       <div className="col-10">
         <div className="row">
-          <div className="col"></div>
-          <Header />
-        </div>
-        <div className="col">
-          <Body />
+          <div className="col">
+            <Header />
+          </div>
+          <div className="row">
+            <Body />
+          </div>
         </div>
       </div>
     </div>

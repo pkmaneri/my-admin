@@ -30,14 +30,11 @@ const UserList = () => {
                 <tbody>
                     {state.users.map((user, i) => {
                         return (
-                            <>
-                                <tr key={i}>
-                                    <th scope="col">{user.first_name}</th>
-                                    <th scope="col">{user.last_name}</th>
-                                    <th scope="col">{user.email}</th>
-                                </tr>
-
-                            </>
+                            <tr key={i}>
+                                <th scope="col">{user.first_name}</th>
+                                <th scope="col">{user.last_name}</th>
+                                <th scope="col">{user.email}</th>
+                            </tr>
                         )
                     })}
                 </tbody>
