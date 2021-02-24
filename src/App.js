@@ -2,6 +2,14 @@ import './App.css';
 import Home from './components/Home';
 import Header from './components/Header';
 import Body from './components/Body';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
   return (
