@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from "react";
+import {
+    Link,
+    useHistory
+  } from "react-router-dom";
+import Header from "./Header";
 
 const UserList = () => {
+    const history = useHistory();
+
     const [state, setState] = useState({
         users: []
     })
+
+    const navigateToUserProfile = ()=>  {
+        history.push("/home/userProfile");
+    }
+
     useEffect(() => {
         fetch("https://reqres.in/api/users?page=2")
             .then(res => res.json())
@@ -19,6 +31,18 @@ const UserList = () => {
     return (
 
         <>
+           <Header />
+            <h1>Page title</h1>
+            <ul className="nav">
+                <li className="nav-item">
+                <Link class="nav-link" to="/home/userList">UserList</Link>
+                </li>
+                <li className="nav-item">
+                <Link  class="nav-link" to="/home/userProfile">UserProfile</Link>
+                </li>
+
+            </ul>
+         
             <table className="table">
                 <thead>
                     <tr>
@@ -30,7 +54,7 @@ const UserList = () => {
                 <tbody>
                     {state.users.map((user, i) => {
                         return (
-                            <tr key={i}>
+                            <tr key={i} onClick={navigateToUserProfile}>
                                 <th scope="col">{user.first_name}</th>
                                 <th scope="col">{user.last_name}</th>
                                 <th scope="col">{user.email}</th>

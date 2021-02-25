@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import {
+    Link
+  } from "react-router-dom";
+import Header from "./Header";
+
 
 const UserProfile = () => {
     const [username, setUsername] = useState("")
@@ -17,6 +22,17 @@ const UserProfile = () => {
 
     return (
         <>
+          <Header />
+            <h1>Page title</h1>
+            <ul className="nav">
+                <li className="nav-item">
+                <Link class="nav-link" to="/home/userList">UserList</Link>
+                </li>
+                <li className="nav-item">
+                <Link class="nav-link" to="/home/userProfile">UserProfile</Link>
+                </li>
+
+            </ul>
             <form onSubmit={handleSubmit}>
                 <table className="table">
                     <tbody>
