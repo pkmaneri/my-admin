@@ -6,12 +6,12 @@ import {
 const Navigation = () => {
     return (
         <>
-            <ul class="nav flex-column">
+            <ul className="nav flex-column">
                 <li>
-                    <Link class="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li>
-                    <Link class="nav-link" to="/About">About</Link>
+                    <Link className="nav-link" to="/About">About</Link>
                 </li>
 
             </ul>

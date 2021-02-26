@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 import Header from "./Header";
 
 
 const UserProfile = () => {
-    const [username, setUsername] = useState("")
 
+    const [username, setUsername] = useState({
+        user: []
+    })
     const handleSubmit = (e) => {
+
         e.preventDefault();
         const data = { username };
         fetch(': https://reqres.in/api/users?page=1', {
@@ -19,17 +22,25 @@ const UserProfile = () => {
             body: JSON.stringify(data),
         })
     }
+    useEffect(() => {
+        let user = localStorage.getItem("user")
+        console.log(user)
+        setUsername({
+            user: JSON.parse(user)
+        })
+    }, [])
+
 
     return (
         <>
-          <Header />
+            <Header />
             <h1>Page title</h1>
             <ul className="nav">
                 <li className="nav-item">
-                <Link class="nav-link" to="/home/userList">UserList</Link>
+                    <Link className="nav-link" to="/home/userList">UserList</Link>
                 </li>
                 <li className="nav-item">
-                <Link class="nav-link" to="/home/userProfile">UserProfile</Link>
+                    <Link className="nav-link" to="/home/userProfile">UserProfile</Link>
                 </li>
 
             </ul>

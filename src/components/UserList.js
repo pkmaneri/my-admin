@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
     Link,
     useHistory
-  } from "react-router-dom";
+} from "react-router-dom";
 import Header from "./Header";
 
 const UserList = () => {
@@ -12,8 +12,12 @@ const UserList = () => {
         users: []
     })
 
-    const navigateToUserProfile = ()=>  {
+    const navigateToUserProfile = (user) => {
+       
+        localStorage.setItem('user', JSON.stringify(user));        
         history.push("/home/userProfile");
+
+        console.log(user);
     }
 
     useEffect(() => {
@@ -31,18 +35,18 @@ const UserList = () => {
     return (
 
         <>
-           <Header />
+            <Header />
             <h1>Page title</h1>
             <ul className="nav">
                 <li className="nav-item">
-                <Link class="nav-link" to="/home/userList">UserList</Link>
+                    <Link className="nav-link" to="/home/userList">UserList</Link>
                 </li>
                 <li className="nav-item">
-                <Link  class="nav-link" to="/home/userProfile">UserProfile</Link>
+                    <Link className="nav-link" to="/home/userProfile">UserProfile</Link>
                 </li>
 
             </ul>
-         
+
             <table className="table">
                 <thead>
                     <tr>
@@ -54,7 +58,7 @@ const UserList = () => {
                 <tbody>
                     {state.users.map((user, i) => {
                         return (
-                            <tr key={i} onClick={navigateToUserProfile}>
+                            <tr key={i} onClick={navigateToUserProfile.bind(this,user)}>
                                 <th scope="col">{user.first_name}</th>
                                 <th scope="col">{user.last_name}</th>
                                 <th scope="col">{user.email}</th>
